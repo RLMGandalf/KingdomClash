@@ -1,0 +1,17 @@
+{
+    "context": "server",
+    "identifier": "KingdomClash",
+    "display_name": "Kingdom Clash",
+    "description": "Create an Army and destroy the enemy castle!",
+    "author": "Gandalf",
+    "version": "1.0",
+    "build": "79600",
+    "date": "2015/03/31",
+    "signature": "not yet implemented",
+    "category": [
+        "game-mode"
+    ],
+    "id": "a",
+    "priority": 500,
+    "enabled": true
+}
