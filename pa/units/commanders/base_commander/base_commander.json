@@ -5,9 +5,9 @@
     "build_metal_cost": 100000,
     "command_caps": [
         "ORDER_Build",
-		"ORDER_Stop",
-		"ORDER_Reclaim",
-		"ORDER_Repair"
+        "ORDER_Stop",
+        "ORDER_Reclaim",
+        "ORDER_Repair"
     ],
     "max_health": 25000,
     "production": {
@@ -15,7 +15,7 @@
         "metal": 5
     },
     "navigation": {
-        "type": "Air",
+        "type": "land-small",
         "acceleration": 250,
         "brake": 250,
         "move_speed": 25,
