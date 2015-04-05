@@ -1,0 +1,129 @@
+{
+  "base_spec": "/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json",
+  "display_name": "Castle",
+  "description": "Castle",
+  "si_name": "commander",
+  "strategic_icon_priority": 0,
+  "max_health": 12500,
+  "build_metal_cost": 25000,
+  "buildable_types": "CmdBuild",
+  "show_in_orbital_layer": true,
+  "armor_type": "AT_Commander",
+  "attachable": {
+    "offsets": {
+      "root": [
+        0,
+        0,
+        0
+      ],
+      "head": [
+        0,
+        0,
+        10
+      ]
+    }
+  },
+  "production": {
+    "energy": 3000,
+    "metal": 30
+  },
+  "storage": {
+    "energy": 20000,
+    "metal": 1000
+  },
+  "unit_types": [
+    "UNITTYPE_Commander",
+    "UNITTYPE_Construction",
+    "UNITTYPE_Mobile",
+    "UNITTYPE_Offense",
+    "UNITTYPE_Land",
+    "UNITTYPE_NoBuild"
+  ],
+  "command_caps": [
+    "ORDER_Patrol",
+    "ORDER_Build",
+    "ORDER_Attack",
+    "ORDER_Reclaim",
+    "ORDER_Repair",
+    "ORDER_Assist",
+    "ORDER_Use",
+    "ORDER_FireSecondaryWeapon"
+  ],
+  "transportable": {
+    "size": 1
+  },
+  "navigation": {
+    "type": "air",
+    "acceleration": 60,
+    "brake": 60,
+    "move_speed": 0.0,
+    "turn_speed": 0.0,
+    "turn_in_place": false,
+    "hover_time": -1.0
+  },
+  "physics": {
+    "radius": 9,
+    "push_class": 100,
+    "sync_radius_to_extents": true
+  },
+  "recon": {
+    "observer": {
+      "items": [
+        {
+          "layer": "surface_and_air",
+          "channel": "sight",
+          "shape": "capsule",
+          "radius": 150
+        },
+        {
+          "layer": "underwater",
+          "channel": "sight",
+          "shape": "capsule",
+          "radius": 150
+        }
+      ]
+    }
+  },
+  "teleportable": {},
+  "tools": [
+    {
+      "spec_id": "/pa/tools/commander_build_arm/commander_build_arm.json",
+      "aim_bone": "bone_turret"
+    }
+  ],
+  "death_weapon": {
+    "ground_ammo_spec": "/pa/ammo/nuke_pbaoe/nuke_pbaoe.json",
+    "air_ammo_spec": "/pa/ammo/nuke_pbaoe/nuke_pbaoe_air.json",
+    "air_height_threshold": 50
+  },
+  "events": {
+    "fired": {
+      "effect_spec": "/pa/effects/specs/default_muzzle_flash.pfx socket_rightMuzzle"
+    }
+  },
+  "fx_offsets": [
+    {
+      "type": "build",
+      "filename": "/pa/effects/specs/fab_spray.pfx",
+      "bone": "socket_leftMuzzle"
+    }
+  ],
+  "audio": {
+    "loops": {
+      "build": {
+        "cue": "/SE/Construction/Commander_contruction_beam_loop",
+        "flag": "build_target_changed",
+        "should_start_func": "has_build_target",
+        "should_stop_func": "no_build_target"
+      }
+    },
+    "selection_response": {
+      "cue": "/SE/Selection/commander"
+    }
+  },
+  "mesh_bounds": [
+    50,
+    50,
+    1
+  ]
+}
