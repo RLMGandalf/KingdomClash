@@ -1,59 +1,125 @@
 {
-    "base_spec": "/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json",
-    "description": "Castle",
-    "display_name": "Castle",
-    "build_metal_cost": 100000,
-    "command_caps": [
-        "ORDER_Build",
-        "ORDER_Stop",
-        "ORDER_Reclaim",
-        "ORDER_Repair"
-    ],
-    "max_health": 25000,
-    "production": {
-        "energy": 0,
-        "metal": 5
-    },
-    "navigation": {
-        "type": "land-small",
-        "acceleration": 250,
-        "brake": 250,
-        "move_speed": 25,
-        "turn_speed": 360
-    },
-	"physics":{"radius":0,"push_class":90},
-	"spawn_layers":"WL_Air",
-    "recon": {
-        "observer": {
-            "items": [
-                {
-                    "channel": "sight",
-                    "layer": "surface_and_air",
-                    "radius": 200,
-                    "shape": "capsule"
-                }
-            ]
-        }
-    },
-    "si_name": "commander",
-    "storage": {
-        "energy": 1,
-        "metal": 1000
-    },
-    "strategic_icon_priority": 0,
-    "tools": [
+  "base_spec": "/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json",
+  "display_name": "Castle",
+  "description": "Castle",
+  "si_name": "commander",
+  "strategic_icon_priority": 0,
+  "max_health": 50000,
+  "build_metal_cost": 100000,
+  "buildable_types": "CmdBuild",
+  "show_in_orbital_layer": true,
+  "armor_type": "AT_Commander",
+  "attachable": {
+    "offsets": {
+      "root": [
+        0,
+        0,
+        0
+      ],
+      "head": [
+        0,
+        0,
+        10
+      ]
+    }
+  },
+  "production": {
+    "energy": 3000,
+    "metal": 30
+  },
+  "storage": {
+    "energy": 20000,
+    "metal": 1000
+  },
+  "unit_types": [
+    "UNITTYPE_Commander",
+    "UNITTYPE_Construction",
+    "UNITTYPE_Mobile",
+    "UNITTYPE_Offense",
+    "UNITTYPE_Land",
+    "UNITTYPE_NoBuild"
+  ],
+  "command_caps": [
+    "ORDER_Build",
+    "ORDER_Reclaim",
+    "ORDER_Repair",
+    "ORDER_Assist"
+  ],
+  "transportable": {
+    "size": 1
+  },
+  "navigation": {
+    "type": "air",
+    "acceleration": 60,
+    "brake": 60,
+    "move_speed": 0.0,
+    "turn_speed": 0.0,
+    "turn_in_place": false,
+    "hover_time": -1.0
+  },
+  "physics": {
+    "radius": 9,
+    "push_class": 100,
+    "sync_radius_to_extents": true
+  },
+  "recon": {
+    "observer": {
+      "items": [
         {
-            "aim_bone": "bone_root",
-            "spec_id": "/pa/tools/commander_build_arm/commander_build_arm.json"
+          "layer": "surface_and_air",
+          "channel": "sight",
+          "shape": "capsule",
+          "radius": 150
+        },
+        {
+          "layer": "underwater",
+          "channel": "sight",
+          "shape": "capsule",
+          "radius": 150
         }
-    ],
-    "buildable_types": "CmdBuild",
-    "unit_types": [
-        "UNITTYPE_Mobile",
-        "UNITTYPE_Fabber",
-		"UNITTYPE_Land",
-		"UNITTYPE_Commander",
-        "UNITTYPE_Construction",
-        "UNITTYPE_NoBuild"
-    ]
+      ]
+    }
+  },
+  "teleportable": {},
+  "tools": [
+    {
+      "spec_id": "/pa/tools/commander_build_arm/commander_build_arm.json",
+      "aim_bone": "bone_turret"
+    }
+  ],
+  "death_weapon": {
+    "ground_ammo_spec": "/pa/ammo/nuke_pbaoe/nuke_pbaoe.json",
+    "air_ammo_spec": "/pa/ammo/nuke_pbaoe/nuke_pbaoe_air.json",
+    "air_height_threshold": 50
+  },
+  "events": {
+    "fired": {
+      "effect_spec": "/pa/effects/specs/default_muzzle_flash.pfx socket_rightMuzzle"
+    }
+  },
+  "fx_offsets": [
+    {
+      "type": "build",
+      "filename": "/pa/effects/specs/fab_spray.pfx",
+      "bone": "socket_leftMuzzle"
+    }
+  ],
+  "audio": {
+    "loops": {
+      "build": {
+        "cue": "/SE/Construction/Commander_contruction_beam_loop",
+        "flag": "build_target_changed",
+        "should_start_func": "has_build_target",
+        "should_stop_func": "no_build_target"
+      }
+    },
+    "selection_response": {
+      "cue": "/SE/Selection/commander"
+    }
+  },
+  "mesh_bounds": [
+    50,
+    50,
+    1
+  ]
 }
